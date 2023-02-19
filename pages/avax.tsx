@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function bsc() {
+export default function avax() {
   return <div>bsc</div>;
 }

@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
+import { Layout } from "@/components";
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -15,16 +16,11 @@ export default function App(props: AppProps) {
         />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "light",
-        }}
-      >
-        <Component {...pageProps} />
-      </MantineProvider>
+      <ChakraProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
     </>
   );
 }

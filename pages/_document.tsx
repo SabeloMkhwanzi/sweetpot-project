@@ -1,20 +1,18 @@
-import { createGetInitialProps } from "@mantine/next";
-import Document, { Head, Html, Main, NextScript } from "next/document";
+// pages/_document.js
+import { ColorModeScript } from "@chakra-ui/react";
+import { Html, Head, Main, NextScript } from "next/document";
+import theme from "../theme";
 
-const getInitialProps = createGetInitialProps();
-
-export default class _Document extends Document {
-  static getInitialProps = getInitialProps;
-
-  render() {
-    return (
-      <Html>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head />
+      <body>
+        {/* 👇 Here's the script */}
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }
